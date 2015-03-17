@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slidebars Swap</title>
+
+  <!-- Styles -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+
+      <header class="sb-slide">
+        <span class="navbutton" data-sbswap="navlist"><i class="fa fa-bars fa-2x"></i></span>
+      </header>
+      <div id="sb-site">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1>slidebars <strong>swap</strong></h1>
+              <p>Extends Adam Smith's <a href="http://plugins.adchsm.me/slidebars/" target="_blank">Slidebars</a> to display multiple content panels.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-sm-2 col-sm-offset-3">
+              <div class="button" data-sbswap="one">1</div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="button" data-sbswap="two">2</div>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+              <div class="button" data-sbswap="three">3</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="links">
+                <a href="http://moran.graphics/files/sbswap.zip">Download</a>
+                <a href="http://lee.moran.graphics/">lee.moran.graphics</a>
+                <a href="https://github.com/leemoran/sbswap">GitHub <i class="fa fa-github-alt fa-lg"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="sb-slidebar sb-left sb-style-overlay">
+        <div class="sb-swap-panel" id="one">
+          <h1>1</h1>
+          <p>Install Slidebars as usual. Include <code>slidebars.swap.js</code> after Slidebars.</p>
+          <div class="buttons">
+            <span class="button" data-sbswap="one">1</span> <span class="button" data-sbswap="two">2</span> <span class="button" data-sbswap="three">3</span>
+          </div>
+        </div>
+        <div class="sb-swap-panel" id="two">
+          <h1>2</h1>
+          <p>In your <code>sb-slidebar</code> div, place each panel's content in a div with the class <code>sb-swap-panel</code> and an ID of whatever you want.</p>
+          <p>Example:</p>
+          <pre>
+            <code>
+&lt;div class="sb-slidebar sb-right sb-style-overlay"&gt;
+  &lt;div class="sb-swap-panel" id="one">Content for panel one&lt;/div&gt;
+  &lt;div class="sb-swap-panel" id="two">Content for panel two&lt;/div&gt;
+&lt;/div&gt;
+            </code>
+          </pre>
+          <div class="buttons">
+            <span class="button" data-sbswap="one">1</span> <span class="button" data-sbswap="two">2</span> <span class="button" data-sbswap="three">3</span>
+          </div>
+        </div>
+        <div class="sb-swap-panel" id="three">
+          <h1>3</h1>
+          <p>Add <code>data-sbswap="theID"</code> to any element that you want to toggle a Slidebars panel, where <code>theID</code> is the ID of the panel you want it to toggle.</p>
+          <p>For styling, Slidebars Swap will add the class <code>sb-active-control</code> to any elements that control the currently open panel.</p>
+          <div class="buttons">
+            <span class="button" data-sbswap="one">1</span> <span class="button" data-sbswap="two">2</span> <span class="button" data-sbswap="three">3</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="sb-slidebar sb-right sb-style-push">
+
+        <div class="sb-swap-panel" id="navlist">
+          <ul>
+            <li><a href="http://lee.moran.graphics/">lee.moran.graphics</a></li>
+            <li>Slidebars Swap is compatible with all of Slidebars' options and animation styles. </li>
+            <li>Any type of content that works with a base Slidebars install can be added to a Slidebars Swap panel.</li>
+            <li>No modifications to Slidebars' core Javascript or CSS are necessary for Slidebars Swap to work.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/slidebars.js"></script>
+      <script src="js/slidebars.swap.js"></script>
+      <script>
+      (function($) {
+        $(document).ready(function() {
+          $.slidebars();
+        });
+      }) (jQuery);
+      </script>
+    </body>
+    </html>
