@@ -1,0 +1,11 @@
+$gray: #d3d3d3;
+$gold: #ffae55;
+$darkgray: darken($gray,60%);
+
+@import "compass";
+@import "bootstrap-compass";
+@import "bootstrap-variables";
+@import "bootstrap-custom";
+@import "fontawesome";
+// @import "slidebars";
+@import "custom";
