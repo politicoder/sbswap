@@ -3467,6 +3467,11 @@ tbody.collapse.in {
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
+.fa-close:before,
+.fa-times:before {
+  content: "\f00d";
+}
+
 .fa-bars:before {
   content: "\f0c9";
 }
@@ -3762,6 +3767,12 @@ html.sb-static .sb-slidebar,
   .sb-left p {
     font-size: 12pt;
   }
+}
+.sb-left .fa-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
 }
 
 .sb-right {

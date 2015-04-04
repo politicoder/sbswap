@@ -274,6 +274,12 @@ html.sb-static .sb-slidebar,
  			font-size:12pt;
  		}
  	}
+ 	.fa-close {
+ 		position:absolute;
+ 		right:20px;
+ 		top:20px;
+ 		cursor:pointer;
+ 	}
  }
 
  .sb-right {
