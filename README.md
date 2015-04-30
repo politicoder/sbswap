@@ -27,3 +27,15 @@ Slidebars Swap extends [Adam Smith's Slidebars](http://plugins.adchsm.me/slideba
 ```
 
 All done! When any element with a `data-sbswap` property is clicked, Slidebars Swap will close any open Slidebars, swap out their content for the panel chosen, and re-open with the correct panel. For ease of styling, it will automatically add a class of `sb-active-control` to all elements that toggle the currently open panel and remove the class when it is closed.
+
+## Swapping with jQuery
+
+Swapping with jQuery is useful for asynchronously loading panels or for situations where data attributes aren't available. Use it like this:
+
+```  
+$('#jquery-button').click(function(e) {
+  $('#yourpanel').slidebarsSwap(this, e);
+});
+```
+            
+Panels swapped this way still require a class of `sb-swap-panel` and a unique ID. `#yourpanel` is the panel being swapped in and the first parameter is the element that will receive the `sb-active-control` class. The second event handler parameter is necessary for Slidebars' API.

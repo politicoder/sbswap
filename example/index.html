@@ -43,6 +43,11 @@
             </div>
           </div>
           <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+              <p>Loading panels with AJAX? Try <a href="#" id="jquery-trigger">swapping with jQuery!</a></p>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-sm-12">
               <div class="links">
                 <a href="http://moran.graphics/files/sbswap.zip">Download</a>
@@ -87,6 +92,19 @@
             <span class="button" data-sbswap="one">1</span> <span class="button" data-sbswap="two">2</span> <span class="button" data-sbswap="three">3</span>
           </div>
         </div>
+        <div class="sb-swap-panel" id="four">
+          <h1>jQ</h1>
+          <p>This panel was swapped with jQuery!</p>
+          <p>Swapping this way is useful for asynchronously loading panels or for situations where data attributes aren't available. Use it like this:</p>
+          <pre>
+            <code>
+$('#jquery-button').click(function(e) {
+  $('#yourpanel').slidebarsSwap(this, e);
+});
+            </code>
+          </pre>
+          <p>Panels swapped this way still require a class of <code>sb-swap-panel</code> and a unique ID. <code>#yourpanel</code> is the panel being swapped in and the first parameter is the element that will receive the <code>sb-active-control</code> class. The second event handler parameter is necessary for Slidebars' API.</p>
+        </div>
 
       </div>
       <div class="sb-slidebar sb-right sb-style-push">
@@ -114,6 +132,12 @@
           $(function () {
             $('[data-toggle="tooltip"]').tooltip()
           })
+
+          $('#jquery-trigger').click(function(e) {
+            $('#four').slidebarsSwap(this, e);
+          });
+
+
         });
       }) (jQuery);
       </script>
