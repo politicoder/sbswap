@@ -15,7 +15,7 @@ var openpanel = null; // All panels closed at first
         // Trigger Slidebars Swap on clicking any element with data-sbswap
         $('[data-sbswap]').on('click', function(e) { 
             var thedata = $(this).data('sbswap');
-            slidebarsSwap(this, thedata, e);
+            swapIt(this, thedata, e);
         });
 
         // Clears Slidebars Swap adjustments when Slidebars are closed via site touch/click
@@ -31,7 +31,7 @@ var openpanel = null; // All panels closed at first
         hideThePanels();
 
         // The main function
-        function slidebarsSwap(thebutton, thispanel, e) {
+        function swapIt(thebutton, thispanel, e) {
             function eventHandler(e) {
                 e.stopPropagation();
                 e.preventDefault();

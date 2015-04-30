@@ -87,6 +87,13 @@
             <span class="button" data-sbswap="one">1</span> <span class="button" data-sbswap="two">2</span> <span class="button" data-sbswap="three">3</span>
           </div>
         </div>
+        <div class="sb-swap-panel" id="four">
+          <h1>4</h1>
+          <p>This panel was swapped with jQuery!</p>
+          <div class="buttons">
+            <span class="button" data-sbswap="one">1</span> <span class="button" data-sbswap="two">2</span> <span class="button" data-sbswap="three">3</span>
+          </div>
+        </div>
 
       </div>
       <div class="sb-slidebar sb-right sb-style-push">
@@ -114,6 +121,12 @@
           $(function () {
             $('[data-toggle="tooltip"]').tooltip()
           })
+
+          $('#ajax-button').click(function() {
+            $('#four').slidebarsSwap();
+          });
+
+
         });
       }) (jQuery);
       </script>
