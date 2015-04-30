@@ -32,14 +32,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-4 col-sm-2 col-sm-offset-3">
+            <div class="col-xs-3 col-sm-2 col-sm-offset-2">
               <div class="button" data-sbswap="one">1</div>
             </div>
-            <div class="col-xs-4 col-sm-2">
+            <div class="col-xs-3 col-sm-2">
               <div class="button" data-sbswap="two">2</div>
             </div>
-            <div class="col-xs-4 col-sm-2">
+            <div class="col-xs-3 col-sm-2">
               <div class="button" data-sbswap="three">3</div>
+            </div>
+            <div class="col-xs-3 col-sm-2">
+              <div class="button" id="jquery-button">4</div>
             </div>
           </div>
           <div class="row">
@@ -122,8 +125,8 @@
             $('[data-toggle="tooltip"]').tooltip()
           })
 
-          $('#ajax-button').click(function() {
-            $('#four').slidebarsSwap();
+          $('#jquery-button').click(function(e) {
+            $('#four').slidebarsSwap(this, e);
           });
 
 

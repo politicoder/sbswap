@@ -8,7 +8,7 @@ var openpanel = null; // All panels closed at first
         // Separate element with .sb-swap-close class will close any open slidebars/panels
         $('.sb-swap-close').click(function() { 
             $.slidebars.close();
-            $('[data-sbswap]').removeClass('sb-active-control');
+            $('.sb-active-control').removeClass('sb-active-control');
             window[openpanel] = null;
         });
 
@@ -18,9 +18,91 @@ var openpanel = null; // All panels closed at first
             swapIt(this, thedata, e);
         });
 
+        // Trigger with jQuery
+        $.fn.slidebarsSwap = function(button, e) {
+
+            // $(button).hide();
+            // (this).css('top',200);
+
+            jqSwapIt(button, (this), e)
+
+            function jqSwapIt(thebutton, thispanel, e) {
+                function eventHandler(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }
+                eventHandler(e);
+
+                // Targets specified panel ID
+                var thecontent = $(thispanel);
+
+                // Checks to see if target panel is in left or right slidebar
+                if ($(thecontent).closest('.sb-left').length) {
+                    paneldirection = 'left';
+                }
+                if ($(thecontent).closest('.sb-right').length) {
+                    paneldirection = 'right';
+                }
+
+                // Checks to see if target panel is in left or right slidebar
+                if ($(thecontent).closest('.sb-left').length) {
+                    paneldirection = 'left';
+                }
+                if ($(thecontent).closest('.sb-right').length) {
+                    paneldirection = 'right';
+                }
+
+            // Checks if panel is already open
+            if (window[openpanel] != thispanel ) {
+
+                // Remove active control class from all elements and add it to specified control
+                $('.sb-active-control').removeClass('sb-active-control');
+                $(thebutton).addClass('sb-active-control');
+
+                // If Slidebars on either side are open, close them, swap out content, then reopen
+                if ($.slidebars.active('left') || $.slidebars.active('right')) {
+                    window.setTimeout(function() {
+                        $.slidebars.close();
+                        window.setTimeout(function() {
+                            hideThePanels();
+                            window.setTimeout(function() {
+                                $(thecontent).show();
+                            }, 100);
+                            window.setTimeout(function() {
+                                $.slidebars.open(paneldirection);
+                                window[openpanel] = thispanel;
+                            }, 250);
+                        }, 250);
+                    }, 100);
+
+                } else {
+
+                    // If no Slidebars were open, swap out content and open
+                    hideThePanels();
+                    $(thecontent).show();
+                    window.setTimeout(function() {
+                        $.slidebars.open(paneldirection);
+                        window[openpanel] = thispanel;
+                    }, 100);
+                }
+                window[openpanel] = thispanel;
+
+            } else {
+
+                // If the clicked panel was already open, close it
+                $(thebutton).removeClass('sb-active-control');
+                $.slidebars.close();
+                window[openpanel] = null;
+            }
+
+
+
+        }
+    };
+
         // Clears Slidebars Swap adjustments when Slidebars are closed via site touch/click
         $site.on('touchend click',function() {
-            $('[data-sbswap]').removeClass('sb-active-control');
+            $('.sb-active-control').removeClass('sb-active-control');
             window[openpanel] = null;
         })  
 
@@ -53,7 +135,7 @@ var openpanel = null; // All panels closed at first
             if (window[openpanel] != thispanel) {
 
                 // Remove active control class from all elements and add it to specified control
-                $('[data-sbswap]').removeClass('sb-active-control');
+                $('.sb-active-control').removeClass('sb-active-control');
                 $("[data-sbswap=" + thispanel + "]").addClass('sb-active-control');
 
                 // If Slidebars on either side are open, close them, swap out content, then reopen
@@ -85,7 +167,7 @@ var openpanel = null; // All panels closed at first
                 window[openpanel] = thispanel;
 
             } else {
-                
+
                 // If the clicked panel was already open, close it
                 $(thebutton).removeClass('sb-active-control');
                 $.slidebars.close();
