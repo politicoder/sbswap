@@ -20,15 +20,9 @@ var openpanel = null; // All panels closed at first
 
         // Trigger with jQuery
         $.fn.slidebarsSwap = function(button, e) {
-
-            // $(button).hide();
-            // this.css('top',200);
-
             var panelID = this.attr('id');
-
             swapIt(button, panelID, e);
-
-    };
+        };
 
         // Clears Slidebars Swap adjustments when Slidebars are closed via site touch/click
         $site.on('touchend click',function() {
@@ -67,6 +61,7 @@ var openpanel = null; // All panels closed at first
                 // Remove active control class from all elements and add it to specified control
                 $('.sb-active-control').removeClass('sb-active-control');
                 $("[data-sbswap=" + thispanel + "]").addClass('sb-active-control');
+                $(thebutton).addClass('sb-active-control');
 
                 // If Slidebars on either side are open, close them, swap out content, then reopen
                 if ($.slidebars.active('left') || $.slidebars.active('right')) {
